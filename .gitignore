@@ -2,5 +2,5 @@
 .venv/
 instance/
 *.db
-__pychace__/
+__pycache__/
 .DS_Store
