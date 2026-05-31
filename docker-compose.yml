@@ -1,0 +1,17 @@
+services:
+  
+  web-backend:
+    build: .
+    restart: always
+    environment:
+      - SECRET_KEY=super-secret-portfolio-key-12345
+
+  nginx-proxy:
+    image: nginx:alpine
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - web-backend
